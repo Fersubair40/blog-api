@@ -5,7 +5,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     JWT_SECRET_KEY = 'subair'
-    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class DevelopmentConfig(Config):
