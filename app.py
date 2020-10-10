@@ -12,7 +12,7 @@ from src.resources.UserLogin import UserLogin
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig())
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:subair@localhost/blog-api-db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config["JWT_SECRET_KEY"] = 'subair'
 
 bcrypt.init_app(app)
