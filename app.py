@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_restful import Api, Resource
 from flask_migrate import Migrate
-from src.config import DevelopmentConfig
+from src.config import ProductionConfig
 from src.models import db, bcrypt
 from flask_jwt_extended import JWTManager
 
@@ -11,7 +11,7 @@ from src.resources.UserLogin import UserLogin
 
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig())
+app.config.from_object(ProductionConfig())
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
 app.config["JWT_SECRET_KEY"] = 'subair'
 
